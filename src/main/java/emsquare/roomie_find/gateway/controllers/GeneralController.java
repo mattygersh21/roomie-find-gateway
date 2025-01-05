@@ -18,14 +18,14 @@ import emsquare.roomie_find.gateway.dtos.LoginResponse;
 
 @RestController
 @RequestMapping("/gateway")
-public class ValidateCallController {
+public class GeneralController {
 
     @Value("${pam.service.url}")
     private String pamServiceUrl;
         
     private final RestTemplate restTemplate;
     
-    public ValidateCallController(RestTemplate restTemplate) {
+    public GeneralController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 

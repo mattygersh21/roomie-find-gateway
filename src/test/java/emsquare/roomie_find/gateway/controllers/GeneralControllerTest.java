@@ -12,8 +12,8 @@ import org.springframework.web.client.RestTemplate;
 
 
 
-@WebMvcTest(ValidateCallController.class)
-public class ValidateCallControllerTest {
+@WebMvcTest(GeneralController.class)
+public class GeneralControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
