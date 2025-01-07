@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,8 +48,13 @@ public class GeneralController {
 
         ResponseEntity<LoginResponse> pamResponse = restTemplate.exchange(pamUrl, HttpMethod.POST, pamEntity, LoginResponse.class);
 
-        return ResponseEntity.status(pamResponse.getStatusCode())
-                             .body(pamResponse.getBody());
+        try {
+            return ResponseEntity.status(pamResponse.getStatusCode())
+                .body(pamResponse.getBody());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new LoginResponse(null));
+        }
+
     }
 
     
