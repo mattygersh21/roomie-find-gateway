@@ -39,7 +39,7 @@ public class GeneralControllerTest {
     @Test
     public void testLoginForwardToPam() throws Exception {
         LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setUsername("admin");
+        loginRequest.setEmail("admin");
         loginRequest.setPassword("password");
 
         mockMvc.perform(post("/gateway/login")
