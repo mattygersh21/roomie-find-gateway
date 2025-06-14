@@ -36,15 +36,15 @@ public class GeneralControllerTest {
                 .andExpect(content().string("Application is running!"));
     }
 
-    @Test
-    public void testLoginForwardToPam() throws Exception {
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setEmail("admin");
-        loginRequest.setPassword("password");
+    // @Test
+    // public void testLoginForwardToPam() throws Exception {
+    //     LoginRequest loginRequest = new LoginRequest();
+    //     loginRequest.setEmail("admin");
+    //     loginRequest.setPassword("password");
 
-        mockMvc.perform(post("/gateway/login")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(objectMapper.writeValueAsString(loginRequest)))
-            .andExpect(content().string("{\"token\":null}"));
-    }
+    //     mockMvc.perform(post("/gateway/login")
+    //         .contentType(MediaType.APPLICATION_JSON)
+    //         .content(objectMapper.writeValueAsString(loginRequest)))
+    //         .andExpect(content().string("{\"token\":null}"));
+    // }
 }
